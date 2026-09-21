@@ -40,7 +40,7 @@ start_node = ()
 dictionary = []
 
 # Nodes, relations, dictionary
-line = sys.stdin.readline()
+line = input()
 node_relation_dictionary_line = line.split()
 if len(node_relation_dictionary_line) != 3:
     fail("Nodes, Relations and Dictionary are not present / too many")
@@ -50,7 +50,7 @@ elif not all(p.isdigit() for p in node_relation_dictionary_line):
 adjlist = [[] for _ in range(int(node_relation_dictionary_line[0]) + 1)]
 
 # Dictionary
-line = sys.stdin.readline()
+line = input()
 dictionary_line = line.split()
 if dictionary_line != sorted(dictionary_line):
     fail("The dictionary is not sorted")
@@ -60,7 +60,7 @@ elif not all(p.isalpha() and p.isupper() for p in dictionary_line):
 dictionary = dictionary_line
 
 # Start Node
-line = sys.stdin.readline()
+line = input()
 start_node_line = line.split()
 if len(start_node_line) != 2:
     fail("Start Node is not present / too many")
@@ -73,7 +73,7 @@ start_node = (start_node_line[0], start_node_line[1])
 
 # Relations
 for _ in range(int(node_relation_dictionary_line[1])):
-    line = sys.stdin.readline()
+    line = input()
     relations_line = line.split()
 
     if len(relations_line) != 3:
