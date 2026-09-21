@@ -47,7 +47,7 @@ if len(node_relation_dictionary_line) != 3:
 elif not all(p.isdigit() for p in node_relation_dictionary_line):
     fail("Nodes, Relations and Dictionary are not digits")
 
-adjlist = [[] for _ in range(int(node_relation_dictionary_line[0]) + 1)]
+adjlist = [[] for _ in range(int(node_relation_dictionary_line[0]))]
 
 # Dictionary
 line = input()
