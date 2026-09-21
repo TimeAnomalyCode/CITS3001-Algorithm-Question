@@ -84,7 +84,7 @@ for _ in range(int(node_relation_dictionary_line[1])):
         fail("Source node is not a digit")
     elif not relations_line[1].isdigit():
         fail("Destination node is not a digit")
-    elif not start_node_line[2].isalpha() or not start_node_line[2].isupper():
+    elif not relations_line[2].isalpha() or not relations_line[2].isupper():
         fail("Letter is not a letter or capitalized")
 
     adjlist[int(relations_line[0])].append(int(relations_line[1]))
