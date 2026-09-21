@@ -71,6 +71,7 @@ elif not ("A" <= start_node_line[1] <= "Z"):
 
 start_node = (start_node_line[0], start_node_line[1])
 
+num_nodes = 0
 # Relations
 for _ in range(int(node_relation_dictionary_line[1])):
     line = input()
@@ -86,6 +87,10 @@ for _ in range(int(node_relation_dictionary_line[1])):
         fail("Letter is not a letter or capitalized")
 
     adjlist[int(relations_line[0])].append(int(relations_line[1]))
+    num_nodes = max(num_nodes, int(relations_line[0]), int(relations_line[1]))
+
+if int(node_relation_dictionary_line[0]) != num_nodes + 1:
+    fail(f"Number of nodes is incorrect, correct nodes is {num_nodes + 1}")
 
 if not topological_sort(adjlist):
     fail("The Graph is not a DAG and contains cycles")
