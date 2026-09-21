@@ -24,7 +24,7 @@ The first line contains N, R, D ($1 \leq N \leq 10^6$, $1 \leq R \leq 10^6$, $1 
 
 The second line contains the words in the dictionary. The third line contains the start node and the letter value. \\
 
-The next line is based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and letter. The letters are alphabetic and capitalized. \\
+The next line is based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and value. The values are alphabetic and capitalized or \code{.} or \code{+}.\\
 
 \section*{Output}
 Output a coded message. The format of the coded message has prefix \code{0}. The subsequent value consists of all valid word indexes sorted. The postfix of the coded message depends if the valid word ends with \code{.}. Any valid words that end with \code{+}, the index is added to the prefix.
