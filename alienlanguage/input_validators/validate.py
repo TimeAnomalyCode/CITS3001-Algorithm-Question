@@ -47,16 +47,14 @@ if len(node_relation_dictionary_line) != 3:
 elif not all(p.isdigit() for p in node_relation_dictionary_line):
     fail("Nodes, Relations and Dictionary are not digits")
 
-adjlist = [[] for _ in range(int(node_relation_dictionary_line[0]))]
+adjlist = [[] for _ in range(int(node_relation_dictionary_line[0]) + 1)]
 
 # Dictionary
 line = sys.stdin.readline()
 dictionary_line = line.split()
 if dictionary_line != sorted(dictionary_line):
     fail("The dictionary is not sorted")
-elif not all(p.isalpha() for p in dictionary_line) or not all(
-    p.isupper() for p in dictionary_line
-):
+elif not all(p.isalpha() and p.isupper() for p in dictionary_line):
     fail("The dictionary contains other than letters or is not capitalized")
 
 dictionary = dictionary_line
@@ -68,7 +66,7 @@ if len(start_node_line) != 2:
     fail("Start Node is not present / too many")
 elif not start_node_line[0].isdigit():
     fail("Start Node number is not a digit")
-elif not start_node_line[1].isalpha() or not start_node_line[1].isupper():
+elif not ("A" <= start_node_line[1] <= "Z"):
     fail("Start Node letter is not a letter or capitalized")
 
 start_node = (start_node_line[0], start_node_line[1])
@@ -84,7 +82,7 @@ for _ in range(int(node_relation_dictionary_line[1])):
         fail("Source node is not a digit")
     elif not relations_line[1].isdigit():
         fail("Destination node is not a digit")
-    elif not relations_line[2].isalpha() or not relations_line[2].isupper():
+    elif not (("A" <= relations_line[2] <= "Z") or relations_line[2] in ("+", ".")):
         fail("Letter is not a letter or capitalized")
 
     adjlist[int(relations_line[0])].append(int(relations_line[1]))
