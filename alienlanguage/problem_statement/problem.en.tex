@@ -8,18 +8,41 @@
     {\setlength{\fboxsep}{1.5pt}\colorbox{codebg}{\texttt{\strut #1}}}%
 }
 
-"Sco bo tro no flo jo ko fo to do. No bo ho sho ko ro to so. Bokodozogobofopojo. Ma ho."
+\begin{flushleft}
+    "Sco bo tro no flo jo ko fo to do. No bo ho sho ko ro to so. Bokodozogobofopojo. Ma ho."
+\end{flushleft}
+
 \begin{flushright}
     --- Famous alien from a Blue Box, 2008. \\
 \end{flushright}
 
-You are a translator that was sent out into deep space to study a new alien language. You have been entrusted with a small dictionary with some sorted alien words that are known to you. The first entry of the dictionary is blank.The alien language uses a 2D structure to represent their language as some sort of cost-saving measure. \\
+\begin{flushleft}
+    You are a translator that was sent out into deep space to study a new alien language. You have been entrusted with a small dictionary with alien words that are known to you. This dictionary is similar to an Oxford English Dictionary. The alien language uses a 2D structure to represent their language as some sort of cost-saving measure. \\
+\end{flushleft}
 
-Each letter is a branch to another letter. When the branch ends, that is considered a word. Each word may be repeated more than once. Some words are considered special as they end with \code{.}  or \code{+}. There is only one word that ends with \code{.} but there are multiple words that end with \code{+}. \\
+\begin{flushleft}
+    Each letter is a branch to another letter. When the branch ends, that is considered a word. Each word may be repeated more than once. Some words are considered special as they end with \code{.}  or \code{+}. There is only one word that ends with \code{.} but there are multiple words that end with \code{+}. \\
+\end{flushleft}
 
-There is one problem, your radio antenna has low bandwidth which means simply sending the word back to Earth will take too long. You will have to return a coded message using the index of your on board dictionary. \\
+\begin{flushleft}
+    There is one problem, your radio antenna has low bandwidth which means simply sending the word back to Earth will take too long. You will have to return a coded message using the index of your on board dictionary. The first entry of the dictionary is blank and the following words continue after. \\
+\end{flushleft}
 
-The coded message is prefixed with digit \code{0}. Any valid word index is appended to the coded message and must be sorted. Once all words have been appended, any valid word that ends with \code{+}, the index should be added to the prefix. Additionally, the valid word that ends with \code{.}, the index should be appended to the end of the coded message.
+\begin{flushleft}
+    The coded message is made up of 3 parts: Part A, Part B and Part C. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part A, if a valid word ends with \code{+}, then the index of the word based on the dictionary is summed together with other valid words that end with \code{+} and is displayed. If there is only one valid word that ends with \code{+}, then display the index of the word. Otherwise, \code{0} is displayed. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part B, any valid word regardless of symbols is appended into a list. This list is sorted and displayed. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part C, if a valid word ends with \code{.}, then the index of the word based on the dictionary is displayed. Otherwise, display nothing. \\
+\end{flushleft}
 
 \section*{Input}
 \begin{flushleft}
@@ -37,12 +60,4 @@ The coded message is prefixed with digit \code{0}. Any valid word index is appen
 \section*{Output}
 \begin{flushleft}
     Output a coded message. \\
-\end{flushleft}
-
-\begin{flushleft}
-    The format of the coded message starts with \code{0}. The following digits are the index of all valid words sorted. The index is based on the dictionary where the first entry is blank. The end of the coded message is the index of the valid word that ends with \code{.} and is guaranteed to have a unique path (\href{https://en.wikipedia.org/wiki/Collider_(statistics)}{No Colliders}). The words can only end with \code{.} or \code{+} but not both together. \\
-\end{flushleft}
-
-\begin{flushleft}
-    Any valid word that ends with \code{+} has their indexes sum to \code{0} at the start of the coded message. \\
 \end{flushleft}
