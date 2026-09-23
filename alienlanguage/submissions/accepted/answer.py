@@ -49,7 +49,7 @@ def binary_search(arr, x):
 
 
 # O(w log w)
-message = [0]
+message = []
 plus_index = 0
 final_index = 0
 for w in words:
@@ -71,8 +71,10 @@ for w in words:
     message.append(index)
 
 # O(w log w)
+# message[0] += plus_index
 message.sort()
+print(plus_index)
+if len(message) > 0:
+    print("".join(str(m) for m in message))
 if final_index > 0:
-    message.append(final_index)
-message[0] += plus_index
-print("".join(str(m) for m in message))
+    print(final_index)
