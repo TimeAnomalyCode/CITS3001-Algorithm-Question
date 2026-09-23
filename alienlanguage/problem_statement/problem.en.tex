@@ -16,56 +16,31 @@
     --- Famous alien from a Blue Box, 2008. \\
 \end{flushright}
 
-\begin{flushleft}
-    You are a translator that was sent out into deep space to study a new alien language. You have been entrusted with a small dictionary with alien words that are known to you. This dictionary is similar to an Oxford English Dictionary. The alien language uses a 2D structure to represent their language as some sort of cost-saving measure. \\
-\end{flushleft}
+You are a translator that was sent out into deep space to study a new alien language. You have landed on the planet and begin surveying. Deep inside the cave of the planet, you come across a cave wall with a glowing letter with arrows that extend out to other letters. You decide to call these graph words and the glowing letter as the source. \\
 
-\begin{flushleft}
-    Each letter is a branch to another letter. When the branch ends, that is considered a word. Each word may be repeated more than once. Some words are considered special as they end with \code{.}  or \code{+}. There is only one word that ends with \code{.} but there are multiple words that end with \code{+}. \\
-\end{flushleft}
+A graph word(\textbf{GW}) is a word that starts from the source and ends at the sink with no further leaves. Example, \code{ACT+}, \code{APZ} and \code{APPLE.} is a graph word. \code{APPA} or \code{ACT} are not graph words. \\
 
-\begin{flushleft}
-    There is one problem, your radio antenna has low bandwidth which means simply sending the word back to Earth will take too long. You will have to return a coded message using the index of your on board dictionary. The first entry of the dictionary is blank and the following words continue after. \\
-\end{flushleft}
+A graph word can have modifiers which are \code{.} and \code{+}. There is only one GW with the modifier \code{.} but there are multiple GWs with the modifier \code{+}. Example 1, \code{ACT+} can be broken down into \code{ACT} with the modifier \code{+}. Example 2, \code{APPLE.} can be broken down into \code{APPLE} with the modifier \code{.}. Example 3, \code{APZ} cannot be broken down further and has no modifier. \\
 
-\begin{flushleft}
-    The \textit{coded message} is made up of 3 parts: Part A, Part B and Part C. \\
-\end{flushleft}
+As a translator, you are given a dictionary similar to an Oxford English Dictionary. The first dictionary word(\textbf{DW}) is blank which means the following DWs begin with an index of 1. A GW can be verified using the dictionary if a GW exists in the dictionary. Once the GW is verified, you can access the index from the dictionary. \\
 
-\begin{flushleft}
-    In Part A, if a valid word ends with \code{+}, then the index of the word based on the dictionary is summed together with other valid words that end with \code{+} and is displayed. If there is only one valid word that ends with \code{+}, then display the index of the word. Otherwise, \code{0} is displayed. \\
-\end{flushleft}
+Example 1, in a dictionary with the DWs of \code{[ACT, APPLE, APZ]}, a GW of \code{ACT+} is a valid DW and returns the index of 1. Example 2, in a dictionary with the DWs of \code{[ACT, APPLE, APZ]}, a GW of \code{APPLE.} is a valid DW and returns the index of 2. \\
 
-\begin{flushleft}
-    In Part B, any valid word regardless of symbols is appended into a list. This list is sorted and displayed. \\
-\end{flushleft}
+There is one problem, your radio antenna has low bandwidth which means simply sending the word back to Earth will take too long. You will have to send back a coded message. \\
 
-\begin{flushleft}
-    In Part C, if a valid word ends with \code{.}, then the index of the word based on the dictionary is displayed. Otherwise, display nothing. \\
-\end{flushleft}
+The \textbf{coded message} is made of 3 lines:
+\begin{itemize}
+    \item The \textit{first line} is the sum of indices of valid GWs with the modifier \code{+}. Otherwise, return 0.
+
+    \item The \textit{second line} is a sorted list of indices of all valid GWs regardless of modifiers. Otherwise, return nothing.
+
+    \item The \textit{third line} is the index of the valid GW that ends with \code{.}. Otherwise, return nothing.
+\end{itemize}
 
 \section*{Input}
-\begin{flushleft}
-    The first line contains N, R, D ($1 \leq N \leq 500,000$, $1 \leq R \leq 500,000$, $1 \leq D \leq 500,000$) where N is the number of nodes, R is the number of relations, D is the number of words in the dictionary. \\
-\end{flushleft}
 
-\begin{flushleft}
-    The second line contains the words in the dictionary. The third line contains the start node and the letter of the alphabet. \\
-\end{flushleft}
+The first line contains N, R, D ($1 \leq N \leq 500,000$, $1 \leq R \leq 500,000$, $1 \leq D \leq 500,000$) where N is the number of nodes, R is the number of relations, D is the number of DWs in the dictionary. \\
 
-\begin{flushleft}
-    The following lines are based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and value. The value is alphabetic and capitalized or \code{.} or \code{+}. \\
-\end{flushleft}
+The second line contains the DWs in the dictionary. The third line contains the start node and the letter of the alphabet. \\
 
-\section*{Output}
-\begin{flushleft}
-    Output a coded message. \\
-\end{flushleft}
-
-\begin{flushleft}
-    In Sample 1, Part A is \code{0} because there are no words that end with \code{+}. Part B is \code{1} because the valid word \code{ACT} exists in the dictionary and the index is \code{1}. Part C is nothing because there is no valid word that ends with \code{.} . \\
-\end{flushleft}
-
-\begin{flushleft}
-    In Sample 2, Part A is \code{2} because there are two valid words (\code{1: ACT+}, \code{1: ACT+}) that end with \code{+} and the indexes are summed. Part B is \code{1123} because the valid words are (\code{1: ACT}, \code{1: ACT}, \code{2: APPLE}, \code{3: APZ}). Part C is \code{2} because there is one valid word (\code{2: APPLE.}) that ends with \code{.} . \\
-\end{flushleft}
+The following lines are based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and letter / modifier (\code{.} or \code{+}). \\

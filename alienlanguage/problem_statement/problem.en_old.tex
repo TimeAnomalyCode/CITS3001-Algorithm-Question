@@ -1,0 +1,71 @@
+\problemname{Alien Language}
+\begin{center}
+    \includegraphics[width=1\textwidth]{images/problem.jpg}
+\end{center}
+
+\definecolor{codebg}{gray}{0.92}
+\newcommand{\code}[1]{%
+    {\setlength{\fboxsep}{1.5pt}\colorbox{codebg}{\texttt{\strut #1}}}%
+}
+
+\begin{flushleft}
+    "Sco bo tro no flo jo ko fo to do. No bo ho sho ko ro to so. Bokodozogobofopojo. Ma ho."
+\end{flushleft}
+
+\begin{flushright}
+    --- Famous alien from a Blue Box, 2008. \\
+\end{flushright}
+
+\begin{flushleft}
+    You are a translator that was sent out into deep space to study a new alien language. You have been entrusted with a small dictionary with alien words that are known to you. This dictionary is similar to an Oxford English Dictionary. The alien language uses a 2D structure to represent their language as some sort of cost-saving measure. \\
+\end{flushleft}
+
+\begin{flushleft}
+    Each letter is a branch to another letter. When the branch ends, that is considered a word. Each word may be repeated more than once. Some words are considered special as they end with \code{.}  or \code{+}. There is only one word that ends with \code{.} but there are multiple words that end with \code{+}. \\
+\end{flushleft}
+
+\begin{flushleft}
+    There is one problem, your radio antenna has low bandwidth which means simply sending the word back to Earth will take too long. You will have to return a coded message using the index of your on board dictionary. The first entry of the dictionary is blank and the following words continue after. \\
+\end{flushleft}
+
+\begin{flushleft}
+    The \textit{coded message} is made up of 3 parts: Part A, Part B and Part C. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part A, if a valid word ends with \code{+}, then the index of the word based on the dictionary is summed together with other valid words that end with \code{+} and is displayed. If there is only one valid word that ends with \code{+}, then display the index of the word. Otherwise, \code{0} is displayed. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part B, any valid word regardless of symbols is appended into a list. This list is sorted and displayed. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Part C, if a valid word ends with \code{.}, then the index of the word based on the dictionary is displayed. Otherwise, display nothing. \\
+\end{flushleft}
+
+\section*{Input}
+\begin{flushleft}
+    The first line contains N, R, D ($1 \leq N \leq 500,000$, $1 \leq R \leq 500,000$, $1 \leq D \leq 500,000$) where N is the number of nodes, R is the number of relations, D is the number of words in the dictionary. \\
+\end{flushleft}
+
+\begin{flushleft}
+    The second line contains the words in the dictionary. The third line contains the start node and the letter of the alphabet. \\
+\end{flushleft}
+
+\begin{flushleft}
+    The following lines are based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and value. The value is alphabetic and capitalized or \code{.} or \code{+}. \\
+\end{flushleft}
+
+\section*{Output}
+\begin{flushleft}
+    Output a coded message. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Sample 1, Part A is \code{0} because there are no words that end with \code{+}. Part B is \code{1} because the valid word \code{ACT} exists in the dictionary and the index is \code{1}. Part C is nothing because there is no valid word that ends with \code{.} . \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Sample 2, Part A is \code{2} because there are two valid words (\code{1: ACT+}, \code{1: ACT+}) that end with \code{+} and the indexes are summed. Part B is \code{1123} because the valid words are (\code{1: ACT}, \code{1: ACT}, \code{2: APPLE}, \code{3: APZ}). Part C is \code{2} because there is one valid word (\code{2: APPLE.}) that ends with \code{.} . \\
+\end{flushleft}
