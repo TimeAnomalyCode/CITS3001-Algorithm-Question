@@ -29,7 +29,7 @@
 \end{flushleft}
 
 \begin{flushleft}
-    The coded message is made up of 3 parts: Part A, Part B and Part C. \\
+    The \textit{coded message} is made up of 3 parts: Part A, Part B and Part C. \\
 \end{flushleft}
 
 \begin{flushleft}
@@ -54,10 +54,18 @@
 \end{flushleft}
 
 \begin{flushleft}
-    The following lines is based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and value. The value is alphabetic and capitalized or \code{.} or \code{+}. \\
+    The following lines are based on the number of relations where Line A (for A = 0, 1, ..., R - 1) has 3 values. The values are source node, destination node and value. The value is alphabetic and capitalized or \code{.} or \code{+}. \\
 \end{flushleft}
 
 \section*{Output}
 \begin{flushleft}
     Output a coded message. \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Sample 1, Part A is \code{0} because there are no words that end with \code{+}. Part B is \code{1} because the valid word \code{ACT} exists in the dictionary and the index is \code{1}. Part C is nothing because there is no valid word that ends with \code{.} . \\
+\end{flushleft}
+
+\begin{flushleft}
+    In Sample 2, Part A is \code{2} because there are two valid words (\code{1: ACT+}, \code{1: ACT+}) that end with \code{+} and the indexes are summed. Part B is \code{1123} because the valid words are (\code{1: ACT}, \code{1: ACT}, \code{2: APPLE}, \code{3: APZ}). Part C is \code{2} because there is one valid word (\code{2: APPLE.}) that ends with \code{.} . \\
 \end{flushleft}
